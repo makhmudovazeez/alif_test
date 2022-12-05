@@ -1,0 +1,9 @@
+{
+  "name": "makhmudovazeez/alif-test",
+  "description": "Test Task for Alif Tech",
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  }
+}

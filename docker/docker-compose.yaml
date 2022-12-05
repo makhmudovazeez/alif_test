@@ -1,0 +1,33 @@
+version: "3"
+
+networks:
+  alif_tech_test:
+    driver: bridge
+volumes:
+  mysql:
+
+services:
+  nginx:
+    build:
+      context: ../
+      dockerfile: docker/nginx/Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ../:/application
+      - ../docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 80:80
+    networks:
+      - alif_tech_test
+
+  php_fpm:
+    build:
+      context: ../
+      dockerfile: docker/php/Dockerfile
+    container_name: php_fpm
+    working_dir: /application
+    restart: unless-stopped
+    volumes:
+      - ../:/application
+    networks:
+      - alif_tech_test
