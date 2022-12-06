@@ -31,7 +31,7 @@ class Route
             throw new Exception("$method is not a valid method in class $callable[class]", 500);
         }
 
-        echo $callable_method();
+        echo $callable_method($this->getRequest());
     }
 
     private function match($method, $url)
