@@ -18,11 +18,15 @@ CREATE TABLE IF NOT EXISTS `alif`.`rooms` (
 
 CREATE TABLE IF NOT EXISTS `alif`.`booking` (
     `id` BIGINT NOT NULL AUTO_INCREMENT,
+    `room_id` BIGINT NOT NULL,
     `full_name` VARCHAR(255) NOT NULL,
     `email` VARCHAR(255) NOT NULL,
     `from_date` DATETIME NOT NULL,
     `to_date` DATETIME NOT NULL,
-    PRIMARY KEY (`id`)
+    PRIMARY KEY (`id`),
+    CONSTRAINT `booking_rooms_room_idFKrooms_id`
+        FOREIGN KEY (`room_id`)
+        REFERENCES `alif`.`rooms` (`id`)
 )
     ENGINE = InnoDB
     DEFAULT CHARACTER SET = utf8
