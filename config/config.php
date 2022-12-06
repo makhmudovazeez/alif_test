@@ -8,7 +8,7 @@ const URL_ROOT = '/';
 const URL_SUBFOLDER = '';
 
 //DB Params
-const DB_HOST = 'your-host';
-const DB_USER = 'your-username';
-const DB_PASS = 'your-password';
-const DB_NAME = 'your-db-name';
+const DB_HOST = 'mysql_alif';
+const DB_USER = 'alif';
+const DB_PASS = 'password';
+const DB_NAME = 'alif';
