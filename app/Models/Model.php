@@ -10,22 +10,22 @@ class Model
     private static mysqli $conn;
     private static $query;
 
-    protected static function connectToDB()
+    protected static function connectToDB(): Model
     {
         self::$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
         if (self::$conn->connect_error) {
-            return "Connection failed: " . self::$conn->connect_error;
+            throw new \Exception(self::$conn->connect_error);
         }
         return new static();
     }
 
-    protected function select(string $statement)
+    protected function select(string $statement): Model
     {
         self::$query = $statement;
         return new static();
     }
 
-    protected function get()
+    protected function get(): array
     {
         $objects = [];
 
@@ -40,5 +40,25 @@ class Model
             }
         }
         return $objects;
+    }
+
+    protected function insert(string $statement)
+    {
+        self::$query = $statement;
+        if (self::$conn->query(self::$query) === TRUE) {
+            return self::$conn->insert_id;
+        } else {
+            throw new \Exception(self::$conn->error);
+        }
+    }
+
+    protected function updateRow(string $statement): bool
+    {
+        self::$query = $statement;
+        if (self::$conn->query(self::$query) === TRUE) {
+            return true;
+        } else {
+            throw new \Exception(self::$conn->error);
+        }
     }
 }

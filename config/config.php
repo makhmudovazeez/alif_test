@@ -12,3 +12,8 @@ const DB_HOST = 'mysql_alif';
 const DB_USER = 'alif';
 const DB_PASS = 'password';
 const DB_NAME = 'alif';
+
+// Mail Params
+const MAIL = '';
+const MAIL_PASSWORD = '';
+const MAIL_PORT = 465;
