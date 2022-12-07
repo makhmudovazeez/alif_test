@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS `alif`.`booking` (
     `email` VARCHAR(255) NOT NULL,
     `from_date` DATETIME NOT NULL,
     `to_date` DATETIME NOT NULL,
+    `emailed` BOOL DEFAULT FALSE,
     PRIMARY KEY (`id`),
     CONSTRAINT `booking_rooms_room_idFKrooms_id`
         FOREIGN KEY (`room_id`)
