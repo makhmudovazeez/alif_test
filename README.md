@@ -7,4 +7,4 @@
     make init
 ```
 
-## When you get info `System ready!` in your console, visit <a href="http://localhost">Alif test</a>
+## When you get info `System ready!` in your console, visit <a href="http://localhost">Site</a>
